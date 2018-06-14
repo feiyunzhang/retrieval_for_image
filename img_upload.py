@@ -101,6 +101,6 @@ if __name__ == '__main__':
                 json_f.write(str(result[j])+'\n')
         except Exception, e:
              print(e)
-             error_f.writelines(url+', '+str(e)+'\n')
+             error_f.writelines(str(result[j])+', '+str(e)+'\n')
 
     print (datetime.datetime.now(), 'done')

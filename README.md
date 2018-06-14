@@ -20,11 +20,11 @@ usage: python2 delete_group.py --ak access_key --sk secret_key
 删除图片库
 
 
-[img_feature.py](./img_feature.py)
+[img_upload.py](./img_upload.py)
 
-usage: python2 img_feature.py --ak access_key --sk secret_key --in url_list
+usage: python2 img_upload.py --ak access_key --sk secret_key --in url_list
 
-利用以图搜图算法提取图片特征
+上传图片
 
 
 [summay-group.py](./summary_group.py)
