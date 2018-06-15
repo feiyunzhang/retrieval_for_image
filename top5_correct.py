@@ -33,10 +33,14 @@ if __name__ == '__main__':
         t = {"url": img_url, "true":0, "simialr_uri":[]}
         if not "error" in dic.keys():
             a += 1
-            im_num = img_url.split('.')[-2].split('/')[-1].lstrip('image_group_test_')
+            #im_num = img_url.split('.')[-2].split('/')[-1].lstrip('image_group_test_')
+            im_num = img_url.split('.')[-2].split('/')[-1]#.lstrip('image_group_test_')
+            print(im_num)
             for i in dic["result"]:
                 uri = []
-                if (i["uri"].split('/'))[4] == "similar" and (im_num in (i["uri"].split('/'))[5]):
+                #print((i["uri"].split('/'))[4].split('__')[0]=="eval",(i["uri"].split('/'))[4].split('-')[0])
+                print((i["uri"].split('/'))[4])
+                if ((i["uri"].split('/'))[4].split('__')[0]=="eval") and (im_num in (i["uri"].split('/'))[4].split('-')[0]):
                     t["simialr_uri"].append(i)
                     t["true"] += 1
             res.append(t)
@@ -45,5 +49,5 @@ if __name__ == '__main__':
     for i in range(a):
         r += res[i]["true"]
 
-    correct = r/(float(a)*5)
+    correct = r/(float(a)*15)
     print ("The top-5 correct percentage is %f" % correct)

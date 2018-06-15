@@ -28,7 +28,7 @@ def retrieval_search_group(url):
 		"uri": url
 	},
 	"params": {
-		"limit": 30
+		"limit": 15
 	}
 }
     token = QiniuMacAuth(access_key, secret_key).token_of_request(
@@ -88,7 +88,7 @@ if __name__ == '__main__':
 
         list_all = get_list_all(args.urllist_file)
         try: 
-            pool = Pool(processes=20)
+            pool = Pool(processes=1)
             result = pool.map(retrieval_search_group,list_all)
             pool.close()
             pool.join()
@@ -96,6 +96,6 @@ if __name__ == '__main__':
                 json_f.write(str(result[j])+'\n')
         except Exception, e:
              print(e)
-             error_f.writelines(str(result)+', '+str(e)+'\n')   
+            # error_f.writelines(str(result)+', '+str(e)+'\n')   
  
     print datetime.datetime.now(), 'done'
