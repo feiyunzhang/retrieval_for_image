@@ -35,6 +35,7 @@ step6:删除库
 [delete_group.py](./delete_group.py)
 
 usage: python2 delete_group.py --ak access_key --sk secret_key
+注意：delete删除所有特征，remove删除对应单一库
 
 [Argus.ImageGroup.md](./Argus.ImageGroup.md)
 
