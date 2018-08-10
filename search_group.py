@@ -14,7 +14,7 @@ import argparse
 import datetime
 from multiprocessing import Pool
 
-def retrieval_search_group(url):
+def retrieval_search_group(access_key, secret_key,url):
     """
     根据以图搜图算法搜查图片返回相似图结果
     :param url: 要识别的图片URL
@@ -89,7 +89,7 @@ if __name__ == '__main__':
         list_all = get_list_all(args.urllist_file)
         try: 
             pool = Pool(processes=1)
-            result = pool.map(retrieval_search_group,list_all)
+            result = pool.map(retrieval_search_group,args.access_key, args.secret_key,list_all)
             pool.close()
             pool.join()
             for j in range(len(result)):
